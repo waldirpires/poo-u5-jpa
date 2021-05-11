@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+	version="2.2">
+
+	<persistence-unit name="BancoPU1">
+		<properties>
+            <!-- jdbc:mysql://localhost:43306/banco?useTimezone=true&amp;serverTimezone=UTC -->
+            <!-- jdbc:h2:mem:banco;MODE=Mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS banco -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:43306/banco?useTimezone=true&amp;serverTimezone=UTC" />
+			<!-- jdbc:h2:./db/banco -->
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="123456" />
+				<!-- com.mysql.cj.jdbc.Driver -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+				
+            <!-- org.h2.Driver -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="true" />
+
+			<!-- hibernate specific config - allow hibernate to create DB -->
+		      <property name="hibernate.hbm2ddl.auto" value="create" /> 
+
+		</properties>
+	</persistence-unit>
+    <persistence-unit name="BancoPU2">
+        <properties>
+            <!-- jdbc:mysql://localhost:43306/banco?useTimezone=true&amp;serverTimezone=UTC -->
+            <!-- jdbc:h2:mem:banco;MODE=Mysql;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;INIT=CREATE SCHEMA IF NOT EXISTS banco -->
+            <property name="javax.persistence.jdbc.url"
+                value="jdbc:h2:./db/banco" />
+            <!-- jdbc:h2:./db/banco -->
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password"
+                value="" />
+                <!-- com.mysql.cj.jdbc.Driver -->
+            <property name="javax.persistence.jdbc.driver"
+                value="org.h2.Driver" />
+                
+            <!-- org.h2.Driver -->
+            <property name="hibernate.dialect"
+                value="org.hibernate.dialect.MySQL8Dialect" />
+
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true" />
+
+            <!-- hibernate specific config - allow hibernate to create DB -->
+            <!--  <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+
+        </properties>
+    </persistence-unit>
+
+</persistence>

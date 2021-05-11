@@ -1,0 +1,151 @@
+2021-05-06 17:05:56 database: wrong user or password; user: "ROOT"
+org.h2.message.DbException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.message.DbException.get(DbException.java:170)
+	at org.h2.engine.Engine.openSession(Engine.java:131)
+	at org.h2.engine.Engine.openSession(Engine.java:192)
+	at org.h2.engine.Engine.createSessionAndValidate(Engine.java:171)
+	at org.h2.engine.Engine.createSession(Engine.java:166)
+	at org.h2.engine.Engine.createSession(Engine.java:29)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:340)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:173)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:152)
+	at org.h2.Driver.connect(Driver.java:69)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:321)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:240)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:218)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:359)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:98)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:73)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:107)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:246)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:101)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:263)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:237)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.id.factory.internal.DefaultIdentifierGeneratorFactory.injectServices(DefaultIdentifierGeneratorFactory.java:152)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.injectDependencies(AbstractServiceRegistryImpl.java:286)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:243)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:214)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:175)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:118)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:900)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:931)
+	at org.hibernate.jpa.HibernatePersistenceProvider.createEntityManagerFactory(HibernatePersistenceProvider.java:56)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:79)
+	at javax.persistence.Persistence.createEntityManagerFactory(Persistence.java:54)
+	at br.newtonpaiva.poo.u5.ex1.Teste.<clinit>(Teste.java:11)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name or password [28000-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	... 42 more
+2021-05-06 17:06:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    CREATE TABLE CLIENTE (
+       ID INTEGER NOT NULL AUTO_INCREMENT,
+        CPF VARCHAR(255),
+        NOME VARCHAR(255),
+        PRIMARY KEY (ID)
+    ) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+
+    create table cliente (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        nome varchar(255),
+        primary key (id)
+    ) engine=InnoDB [42001-200]
+2021-05-06 17:06:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found; SQL statement:
+/* insert br.newtonpaiva.poo.u5.ex1.model.Cliente */ insert into cliente (cpf, nome) values (?, ?) [42102-200]
+2021-05-06 17:07:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    CREATE TABLE CLIENTE (
+       ID INTEGER NOT NULL AUTO_INCREMENT,
+        CPF VARCHAR(255),
+        NOME VARCHAR(255),
+        PRIMARY KEY (ID)
+    ) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+
+    create table cliente (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        nome varchar(255),
+        primary key (id)
+    ) engine=InnoDB [42001-200]
+2021-05-06 17:07:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found; SQL statement:
+/* insert br.newtonpaiva.poo.u5.ex1.model.Cliente */ insert into cliente (cpf, nome) values (?, ?) [42102-200]
+2021-05-06 17:07:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    CREATE TABLE CLIENTE (
+       ID INTEGER NOT NULL AUTO_INCREMENT,
+        CPF VARCHAR(255),
+        NOME VARCHAR(255),
+        PRIMARY KEY (ID)
+    ) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+
+    create table cliente (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        nome varchar(255),
+        primary key (id)
+    ) engine=InnoDB [42001-200]
+2021-05-06 17:07:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found; SQL statement:
+/* insert br.newtonpaiva.poo.u5.ex1.model.Cliente */ insert into cliente (cpf, nome) values (?, ?) [42102-200]
+05-06 17:07:53 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "COMMIT.[*] "; SQL statement:
+commit. [42000-175]
+2021-05-06 17:08:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "
+    CREATE TABLE CLIENTE (
+       ID INTEGER NOT NULL AUTO_INCREMENT,
+        CPF VARCHAR(255),
+        NOME VARCHAR(255),
+        PRIMARY KEY (ID)
+    ) ENGINE=[*]INNODB"; expected "identifier"; SQL statement:
+
+    create table cliente (
+       id integer not null auto_increment,
+        cpf varchar(255),
+        nome varchar(255),
+        primary key (id)
+    ) engine=InnoDB [42001-200]
+2021-05-06 17:08:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found; SQL statement:
+/* insert br.newtonpaiva.poo.u5.ex1.model.Cliente */ insert into cliente (cpf, nome) values (?, ?) [42102-200]
+05-06 17:28:39 database: close
+org.h2.message.DbException: IO Exception: "java.io.EOFException"; "/home/wrpires/code/repos/java-jpa-aula1/db/banco.h2.db" [90031-175]
+	at org.h2.message.DbException.get(DbException.java:161)
+	at org.h2.message.DbException.convertIOException(DbException.java:318)
+	at org.h2.store.FileStore.readFully(FileStore.java:268)
+	at org.h2.store.PageStore.readPage(PageStore.java:1291)
+	at org.h2.store.PageStore.getPage(PageStore.java:738)
+	at org.h2.store.PageStreamTrunk$Iterator.next(PageStreamTrunk.java:250)
+	at org.h2.store.PageLog.free(PageLog.java:209)
+	at org.h2.store.PageStore.compact(PageStore.java:491)
+	at org.h2.engine.Database.closeOpenFilesAndUnlock(Database.java:1257)
+	at org.h2.engine.Database.close(Database.java:1207)
+	at org.h2.engine.Database.removeSession(Database.java:1085)
+	at org.h2.engine.Session.close(Session.java:661)
+	at org.h2.jdbc.JdbcConnection.close(JdbcConnection.java:366)
+	at org.h2.server.web.WebApp.logout(WebApp.java:931)
+	at org.h2.server.web.WebApp.process(WebApp.java:213)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:168)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: org.h2.jdbc.JdbcSQLException: IO Exception: "java.io.EOFException"; "/home/wrpires/code/repos/java-jpa-aula1/db/banco.h2.db" [90031-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	... 19 more
+Caused by: java.io.EOFException
+	at org.h2.store.fs.FileUtils.readFully(FileUtils.java:343)
+	at org.h2.store.FileStore.readFully(FileStore.java:266)
+	... 16 more
