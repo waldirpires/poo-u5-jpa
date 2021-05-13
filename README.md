@@ -1,2 +1,3 @@
-# java-jpa-aula1
-Java com JPA Aula1
+# Newton Paiva - Programação Orientada por Objetos
+U5: Mapeamento Objeto-Relacional
+
