@@ -54,7 +54,7 @@
             <property name="hibernate.use_sql_comments" value="true" />
 
             <!-- hibernate specific config - allow hibernate to create DB -->
-            <!--  <property name="hibernate.hbm2ddl.auto" value="create" /> -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
 
         </properties>
     </persistence-unit>

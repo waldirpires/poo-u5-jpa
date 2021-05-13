@@ -1,7 +1,5 @@
 package br.newtonpaiva.poo.u5.ex1;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -27,7 +25,7 @@ public class Teste {
         entityManager.getTransaction().commit();
         System.out.println(cliente);
 
-        // LIST
+        // LIST: HQL -> JQL
         var clientes = entityManager.createQuery("select c from Cliente c", Cliente.class).getResultList();
         System.out.println("Clientes:");
         System.out.println(clientes);
