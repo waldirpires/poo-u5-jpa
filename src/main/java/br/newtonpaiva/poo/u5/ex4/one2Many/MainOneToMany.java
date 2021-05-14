@@ -6,7 +6,7 @@ public class MainOneToMany extends AbstractMain {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        var disciplina = new Disciplina(null, "TADS-001", "Programação Orientada por Objetos");
+        var disciplina = new Disciplina("TADS-001", "Programação Orientada por Objetos");
         salvar(disciplina);
 
         var curso = new Curso(null, "TADS", "Técnicas de Análise de Sistemas", "Exatas", 8, "presencial");

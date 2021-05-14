@@ -6,7 +6,7 @@ public class MainOneToOne extends AbstractMain {
 
     public static void main(String[] args) {
 
-        var doc = new DocumentoDeIndentificacao(null, "Identidade", "MG-12345678");
+        var doc = new DocumentoDeIdentificacao(null, "Identidade", "MG-12345678");
         System.out.println(doc);
         System.out.println();
 
@@ -29,12 +29,12 @@ public class MainOneToOne extends AbstractMain {
         System.out.println(aluno);
         System.out.println();
 
-        var docs = listar(DocumentoDeIndentificacao.class);
+        var docs = listar(DocumentoDeIdentificacao.class);
         System.out.println("Documentos:");
         System.out.println(docs);
         System.out.println();
 
-        doc = buscar(DocumentoDeIndentificacao.class, doc.getId());
+        doc = buscar(DocumentoDeIdentificacao.class, doc.getId());
         System.out.println(doc);
         System.out.println();
 

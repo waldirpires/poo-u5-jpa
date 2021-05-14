@@ -51,16 +51,22 @@ public class Curso {
 
     public void adicionarDisciplina(Disciplina d) {
         this.disciplinas.add(d);
+        d.setCurso(this);
     }
 
     public void removerDisciplina(Disciplina d) {
         this.disciplinas.remove(d);
+        d.setCurso(null);
     }
 
     @Override
     public String toString() {
         return "Curso [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", area=" + area + ", numSemestres="
                 + numSemestres + ", regime=" + regime + ", disciplinas=" + disciplinas + "]";
+    }
+
+    public Set<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 
 }

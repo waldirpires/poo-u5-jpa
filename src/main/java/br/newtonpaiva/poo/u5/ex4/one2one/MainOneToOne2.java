@@ -9,7 +9,7 @@ public class MainOneToOne2 {
 
         fonteDeDados.inicializar();
 
-        var doc = new DocumentoDeIndentificacao(null, "Identidade", "MG-12345678");
+        var doc = new DocumentoDeIdentificacao(null, "Identidade", "MG-12345678");
         System.out.println(doc);
         System.out.println();
 
@@ -32,12 +32,12 @@ public class MainOneToOne2 {
         System.out.println(aluno);
         System.out.println();
 
-        var docs = fonteDeDados.listar(DocumentoDeIndentificacao.class);
+        var docs = fonteDeDados.listar(DocumentoDeIdentificacao.class);
         System.out.println("Documentos:");
         System.out.println(docs);
         System.out.println();
 
-        doc = fonteDeDados.buscar(DocumentoDeIndentificacao.class, doc.getId());
+        doc = fonteDeDados.buscar(DocumentoDeIdentificacao.class, doc.getId());
         System.out.println(doc);
         System.out.println();
 

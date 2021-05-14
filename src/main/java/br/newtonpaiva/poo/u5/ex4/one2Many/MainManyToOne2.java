@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class MainOneToMany2 {
+public class MainManyToOne2 {
 
     private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BancoPU1");
 
@@ -27,22 +27,7 @@ public class MainOneToMany2 {
         salvar(c);
 
         fechar();
-    }
 
-    public static void main2(String[] args) {
-        var d = new Disciplina("TADS-001", "Programação Orientada a Objetos");
-        salvar(d);
-
-        var c = new Curso(null, "NP-001", "Análise de Sistemas", "exatas", 8, "presencial");
-        salvar(c);
-
-        c.adicionarDisciplina(d);
-        salvar(c);
-
-        c.removerDisciplina(d);
-        salvar(c);
-
-        fechar();
     }
 
     private static void fechar() {
@@ -55,6 +40,17 @@ public class MainOneToMany2 {
     private static void salvar(Object obj) {
         entityManager.getTransaction().begin();
         entityManager.persist(obj);
+        entityManager.getTransaction().commit();
+
+        System.out.println("--- CRIADO");
+        System.out.println(obj);
+        System.out.println("---");
+        System.out.println();
+    }
+
+    private static void delete(Object obj) {
+        entityManager.getTransaction().begin();
+        entityManager.remove(obj);
         entityManager.getTransaction().commit();
 
         System.out.println("--- CRIADO");
