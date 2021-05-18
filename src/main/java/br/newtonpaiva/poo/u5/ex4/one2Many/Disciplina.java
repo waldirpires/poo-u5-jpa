@@ -19,35 +19,56 @@ import br.newtonpaiva.poo.u5.ex4.one2one.Aluno;
 public class Disciplina {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String codigo;
 
     private String nome;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private Curso curso;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Aluno> alunos = new HashSet<>();
 
     public Disciplina(String codigo, String nome) {
+        super();
         this.codigo = codigo;
         this.nome = nome;
     }
 
-    public Disciplina() {
+    public Disciplina() { // POJO
         // TODO Auto-generated constructor stub
     }
 
     @Override
     public String toString() {
-        return "Disciplina [id=" + id + ", codigo=" + codigo + ", nome=" + nome + "]";
+        return "Disciplina [id=" + id + ", codigo=" + codigo + ", nome=" + nome + ", curso=" + curso.getNome() + "]";
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public void setCurso(Curso curso) {
@@ -64,7 +85,7 @@ public class Disciplina {
         a.removerDisciplina(this);
     }
 
-    public Curso getCurso() {
-        return curso;
+    public Set<Aluno> getAlunos() {
+        return alunos;
     }
 }

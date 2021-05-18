@@ -1,0 +1,22 @@
+SQLs:
+drop database banco;
+create database banco;
+use banco;
+show tables;
+
+drop database banco;
+create database banco;
+use banco;
+show tables;
+
+
+desc curso;
+desc disciplina;
+
+
+desc funcionario;
+select * from funcionario;
+desc contrato_clt;
+select * from contrato_clt;
+desc contrato_pj;
+select * from contrato_pj;

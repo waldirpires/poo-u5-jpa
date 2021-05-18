@@ -11,15 +11,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import br.newtonpaiva.poo.u5.ex4.one2Many.Disciplina;
 
 @Entity
-@Table(name = "aluno")
+@Table(name = "aluno", uniqueConstraints = {
+        @UniqueConstraint(name = "documentacao", columnNames = { "documento_id" }) })
 public class Aluno {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private String nome;
@@ -30,13 +32,14 @@ public class Aluno {
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Disciplina> disciplinas = new HashSet<>();
 
-    public Aluno(Integer id, String nome, DocumentoDeIdentificacao documento) {
-        this.id = id;
+    public Aluno(String nome, DocumentoDeIdentificacao documento) {
+        super();
         this.nome = nome;
-        this.documento = documento;
+        setDocumento(documento);
     }
 
     public Aluno() {
+        // TODO Auto-generated constructor stub
     }
 
     @Override
@@ -48,8 +51,33 @@ public class Aluno {
         return id;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public DocumentoDeIdentificacao getDocumento() {
+        return documento;
+    }
+
     public void setDocumento(DocumentoDeIdentificacao documento) {
+        // se for desassociação
+        if (documento == null && this.documento != null) {
+            this.documento.setAluno(null);
+        }
+        // seta
         this.documento = documento;
+        // se for associacao
+        if (documento != null) {
+            documento.setAluno(this);
+        }
     }
 
     public void adicionarDisciplina(Disciplina d) {
@@ -58,5 +86,9 @@ public class Aluno {
 
     public void removerDisciplina(Disciplina d) {
         this.disciplinas.remove(d);
+    }
+
+    public Set<Disciplina> getDisciplinas() {
+        return disciplinas;
     }
 }
